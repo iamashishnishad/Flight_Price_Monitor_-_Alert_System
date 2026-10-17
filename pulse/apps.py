@@ -1,0 +1,10 @@
+from django.apps import AppConfig
+
+
+class PulseConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'pulse'
+
+    def ready(self):
+        # Register the post_save signal that auto-creates UserProfile
+        from . import signals  # noqa: F401
